@@ -1,0 +1,27 @@
+{
+  "name": "parse-json-from-buffer",
+  "version": "1.0.0",
+  "description": "parse a json form a buffer",
+  "main": "dist/index.js",
+  "types" : "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fosk06/parseJsonFromBuffer.git"
+  },
+  "author": "thomas trividic <fosk.ttr@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fosk06/parseJsonFromBuffer/issues"
+  },
+  "homepage": "https://github.com/fosk06/parseJsonFromBuffer#readme",
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "@types/node": "^12.12.3"
+  }
+}
