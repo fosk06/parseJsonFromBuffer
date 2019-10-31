@@ -6,6 +6,9 @@
  */
 export function parseJsonFromBuffer(jsonBuffer: string | ArrayBuffer | SharedArrayBuffer , encoding:  "ascii" | "utf8" | "utf-8" | "utf16le" | "ucs2" | "ucs-2" | "base64" | "latin1" | "binary" | "hex") {
     try {
+        if(!encoding) {
+           throw new Error('encoding is mandatory');
+        }
         const str = jsonBuffer.toString()
         const stringResult = Buffer.from(str,encoding).toString() // transform the buffer to string with specific encoding
         const jsObject = JSON.parse(stringResult);
