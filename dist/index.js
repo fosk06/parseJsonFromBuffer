@@ -7,8 +7,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 function parseJsonFromBuffer(jsonBuffer, encoding) {
     try {
-        var strBuffer = Buffer.from(jsonBuffer).toString();
-        var stringResult = Buffer.from(strBuffer, encoding).toString(); // transform the buffer to string with specific encoding
+        if (typeof encoding !== 'string') {
+            throw new Error('encoding is mandatory');
+        }
+        var str = jsonBuffer.toString();
+        var stringResult = Buffer.from(str, encoding).toString(); // transform the buffer to string with specific encoding
         var jsObject = JSON.parse(stringResult);
         return jsObject;
     }
