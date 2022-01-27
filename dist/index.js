@@ -20,3 +20,9 @@ function parseJsonFromBuffer(jsonBuffer, encoding) {
     }
 }
 exports.parseJsonFromBuffer = parseJsonFromBuffer;
+function encodeObjectToString(dataObject, encoding) {
+    var buff = Buffer.from(JSON.stringify(dataObject));
+    var encodedData = buff.toString(encoding);
+    return encodedData;
+}
+exports.encodeObjectToString = encodeObjectToString;
