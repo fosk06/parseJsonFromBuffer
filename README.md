@@ -8,17 +8,27 @@ It takes a buffer, convert it to string then parse the JSON and return the javas
 ### Javascript
 
 ```javascript
-const {parseJsonFromBuffer} = require('parse-json-from-buffer');
-const testBuffer = Buffer.from('eyJmaXJzdE5hbWUiOiJKb2huIiwibGFzdE5hbWUiOiJEb2UifQ') // json stringified base64 string
-const result = parseJsonFromBuffer(testBuffer, 'base64') // output { firstName: 'John', lastName: 'Doe' }
+const {parseJsonFromBuffer,encodeObjectToString} = require('parse-json-from-buffer');
+const secrets = {secretOne: "changeMe", secretTwo: "changeMeToo"};
+// encode your js object (must be allow JSON.STRINGIFY)
+const encodedSecrets = encodeObjectToString(secrets, 'base64');
+
+const testBuffer = Buffer.from(encodedSecrets) // json stringified base64 string
+// revert the process
+const result = parseJsonFromBuffer(testBuffer, 'base64') // output {secretOne: "changeMe", secretTwo: "changeMeToo"};
 ```
 
 ### TypeScript
 
 ```typescript
-import  parseJsonFromBuffer  from 'parse-json-from-buffer';
-const testBuffer = Buffer.from('eyJmaXJzdE5hbWUiOiJKb2huIiwibGFzdE5hbWUiOiJEb2UifQ') // json stringified base64 string
-const result = parseJsonFromBuffer(testBuffer, 'base64') // output { firstName: 'John', lastName: 'Doe' }
+import  parseJsonFromBuffer,encodeObjectToString  from 'parse-json-from-buffer';
+const secrets = {secretOne: "changeMe", secretTwo: "changeMeToo"};
+// encode your js object (must be allow JSON.STRINGIFY)
+const encodedSecrets = encodeObjectToString(secrets, 'base64');
+
+const testBuffer = Buffer.from(encodedSecrets) // json stringified base64 string
+// revert the process
+const result = parseJsonFromBuffer(testBuffer, 'base64') // output {secretOne: "changeMe", secretTwo: "changeMeToo"};
 ```
 
 ## Test

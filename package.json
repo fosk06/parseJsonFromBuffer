@@ -1,6 +1,6 @@
 {
   "name": "parse-json-from-buffer",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "parse a json form a buffer",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
